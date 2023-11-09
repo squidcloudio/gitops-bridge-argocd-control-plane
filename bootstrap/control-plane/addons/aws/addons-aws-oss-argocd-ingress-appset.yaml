@@ -89,7 +89,7 @@ spec:
                     backendProtocolVersion: "GRPC"  # This tells AWS to send traffic from the ALB using HTTP2. Can use gRPC as well if you want to leverage gRPC specific features
               configs:
                 cm:
-                  url: https://{{.metadata.annotations.argcd_dns}}
+                  url: https://{{.metadata.annotations.argocd_dns}}
                   dex.config: |
                     connectors:
                     - config:
