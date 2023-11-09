@@ -66,7 +66,6 @@ configs:
       enableOCI: 'true'
   rbac:
     policy.default: role:admin
-    scopes: null
   cm:
     application.resourceTrackingMethod: 'annotation' #use annotation for tracking required for Crossplane
     resource.exclusions: |
