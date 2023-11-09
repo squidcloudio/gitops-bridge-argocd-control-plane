@@ -64,6 +64,8 @@ configs:
       type: helm
       url: public.ecr.aws
       enableOCI: 'true'
+  rbac:
+    policy.default: role:admin
   cm:
     application.resourceTrackingMethod: 'annotation' #use annotation for tracking required for Crossplane
     resource.exclusions: |
