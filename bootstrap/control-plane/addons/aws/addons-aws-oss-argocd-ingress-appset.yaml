@@ -96,6 +96,7 @@ spec:
                         issuer: https://accounts.google.com
                         clientID: {{.metadata.annotations.argocd_google_sso_client_id}}
                         clientSecret: {{.metadata.annotations.argocd_google_sso_client_secret}}
+                        redirectURI: https://{{.metadata.annotations.argocd_dns}}/api/dex/callback 
                       type: oidc
                       id: google
                       name: google
