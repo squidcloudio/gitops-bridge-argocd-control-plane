@@ -88,18 +88,17 @@ spec:
                     serviceType: "ClusterIP"  # Instance mode needs type NodePort, IP mode needs type ClusterIP or NodePort
                     backendProtocolVersion: "GRPC"  # This tells AWS to send traffic from the ALB using HTTP2. Can use gRPC as well if you want to leverage gRPC specific features
               configs:
-                cm:
-                  url: https://{{.metadata.annotations.argocd_dns}}
+                cm: 
                   dex.config: |
                     connectors:
                     - config:
                         issuer: https://accounts.google.com
                         clientID: {{.metadata.annotations.argocd_google_sso_client_id}}
                         clientSecret: {{.metadata.annotations.argocd_google_sso_client_secret}}
-                        redirectURI: https://{{.metadata.annotations.argocd_dns}}/api/dex/callback 
                       type: oidc
                       id: google
-                      name: google
+                      name: Google
+                  url: https://{{.metadata.annotations.argocd_dns}}
       destination:
         namespace: '{{default "argocd" .metadata.annotations.argocd_namespace}}'
         name: '{{.name}}'
