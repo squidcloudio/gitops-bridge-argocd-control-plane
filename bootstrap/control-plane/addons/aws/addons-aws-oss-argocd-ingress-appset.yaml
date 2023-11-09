@@ -76,6 +76,7 @@ spec:
                     alb.ingress.kubernetes.io/listen-ports: "[{\"HTTPS\":443}]"
                     alb.ingress.kubernetes.io/tags: "Environment=control-plane,GitOps=true"
                     alb.ingress.kubernetes.io/certificate-arn: '{{.metadata.annotations.argocd_host_cert_arn}}'
+                    external-dns.alpha.kubernetes.io/hostname: '{{first .metadata.annotations.argocd_hosts}}'
                   ingressClassName: "alb"
                   hosts: {{.metadata.annotations.argocd_hosts}}
                   tls:
